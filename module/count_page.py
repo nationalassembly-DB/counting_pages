@@ -24,7 +24,7 @@ def get_hwp_page_count(hwp_file_path):
         hwp.RegisterModule("FilePathCheckDLL", "SecurityModule")
         hwp.Open(hwp_file_path)
         num_pages = hwp.PageCount
-    except Exception as e:
+    except Exception as e:  # pylint: disable=W0703
         print(f"Error: {e}")
         return None
     finally:
@@ -32,7 +32,7 @@ def get_hwp_page_count(hwp_file_path):
             try:
                 hwp.ReleaseControl()
                 hwp.Quit()
-            except:
+            except:  # pylint: disable=W0703
                 pass
 
     return num_pages
