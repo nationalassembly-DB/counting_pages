@@ -2,21 +2,18 @@
 pdf와 hwp 페이지 수를 검색합니다
 """
 
-import PyPDF2
-import PyPDF2.errors
+import fitz
 import win32com.client as win32
 
 
 def get_pdf_page_count(pdf_file_path):
     """pdf의 페이지 수를 가져옵니다"""
-    try:
-        with open(pdf_file_path, 'rb') as f:
-            pdf_reader = PyPDF2.PdfReader(f)
-            num_pages = len(pdf_reader.pages)
-            return num_pages
-    except PyPDF2.errors.PdfReadError as e:
-        print(f"Pdf Read Error: {e}")
-        return None
+    pdf = fitz.open(pdf_file_path)
+
+    pdf_pages = pdf.page_count
+    pdf.close()
+
+    return pdf_pages
 
 
 def get_hwp_page_count(hwp_file_path):
