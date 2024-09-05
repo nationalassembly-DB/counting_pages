@@ -1,9 +1,14 @@
+"""
+main 함수.
+"""
+
 import os
 
 from module.process_folder import process_folder
 
 
 def main():
+    """main 함수. 프로그램을 종료할 때까지 반복합니다"""
     print("\n>>>>>>문서 페이지수 추출기<<<<<<\n")
     input_path = input(
         "PDF, HWP 페이지 수를 가져올 폴더 경로를 입력하세요(종료는 0을 입력) : ").strip()

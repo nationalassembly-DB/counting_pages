@@ -1,8 +1,13 @@
+"""
+전달받은 리스트를 이용해 파일명 페이지 수 등을 엑셀에 저장합니다
+"""
+
 import os
 import openpyxl
 
 
 def save_pages_to_excel(pages, excel_file):
+    """리스트를 전달받아 파일명, 페이지 수, 경로명을 엑셀에 저장합니다"""
     if os.path.exists(excel_file):
         workbook = openpyxl.load_workbook(excel_file)
         sheet = workbook.active

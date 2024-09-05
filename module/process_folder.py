@@ -1,12 +1,18 @@
-from module.count_page import get_hwp_page_count, get_pdf_page_count
-from module.save_excel import save_pages_to_excel
+"""
+폴더 내부 파일을 처리합니다
+"""
 
 
 import os
 from natsort import natsorted
 
 
+from module.count_page import get_hwp_page_count, get_pdf_page_count
+from module.save_excel import save_pages_to_excel
+
+
 def process_folder(folder_path, excel_file):
+    """폴더 내부에서 pdf와 hwp 파일을 찾아 처리합니다"""
     page_counts = []
 
     for root, _, files in os.walk(folder_path):
