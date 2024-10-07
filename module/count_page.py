@@ -29,10 +29,6 @@ def get_hwp_page_count(hwp_file_path):
         return None
     finally:
         if hwp:
-            try:
-                hwp.ReleaseControl()
-                hwp.Quit()
-            except Exception:  # pylint: disable=W0703
-                pass
+            hwp.Quit()
 
     return num_pages
