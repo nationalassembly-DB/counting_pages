@@ -21,6 +21,7 @@ def get_hwp_page_count(hwp_file_path):
     hwp = None
     try:
         hwp = win32.gencache.EnsureDispatch("HWPFrame.HwpObject")
+        hwp.SetMessageBoxMode(0x00000020)
         hwp.RegisterModule("FilePathCheckDLL", "SecurityModule")
         hwp.Open(hwp_file_path, arg="versionwarning:False;suspendpassword:True")
         num_pages = hwp.PageCount
